@@ -1,0 +1,39 @@
+Center
+/api/Center GET ALL 200
+/api/Center/{id} GET 200
+/api/Center POST 201
+/api/Center/{id} PUT 200
+/api/Center/{id} DELETE 200/204
+
+Request Body for POST:
+{
+	"name": "some name",
+	"description": "desc"
+}
+
+Technician
+/api/Center/{id}/Technician GET ALL 200
+/api/Center/{id}/Technician/{id} GET 200
+/api/Center/{id}/Technician POST 201
+/api/Center/{id}/Technician/{id} PUT 200
+/api/Center/{id}/Technician/{id} DELETE 200/204
+
+Request Body for POST:
+{
+	"name": "Technician Name",
+	"specialization": "Specialization"
+}
+
+Task
+/api/Center/{centerId}/Technician/{technicianId}/Task GET ALL 200
+/api/Center/{centerId}/Technician/{technicianId}/Task/{taskId} GET 200
+/api/Center/{centerId}/Technician/{technicianId}/Task POST 201
+/api/Center/{centerId}/Technician/{technicianId}/Task/{taskId} PUT 200
+/api/Center/{centerId}/Technician/{technicianId}/Task/{taskId} DELETE 200/204
+
+Request Body for POST:
+{
+	"title": "Task Title",
+	"description": "Task Description",
+	"status": "Task Status"
+}
