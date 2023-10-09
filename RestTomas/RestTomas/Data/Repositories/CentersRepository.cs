@@ -12,9 +12,9 @@ namespace RestTomas.Data.Repositories
     {
         Task<IEnumerable<Center>> GetAll();
         Task<Center> Get(int id);
-        Task<Center> Create();
-        Task<Center> Put();
-        Task Delete();
+        Task<Center> Create(Center center);
+        Task<Center> Put(Center center);
+        Task Delete(Center center);
     }
 
     public class CentersRepository : ICentersRepository
@@ -45,7 +45,7 @@ namespace RestTomas.Data.Repositories
             };
         }
 
-        public async Task<Center> Create()
+        public async Task<Center> Create(Center center)
         {
             return new Center()
             {
@@ -54,7 +54,7 @@ namespace RestTomas.Data.Repositories
             };
         }
 
-        public async Task<Center> Put()
+        public async Task<Center> Put(Center center)
         {
             return new Center()
             {
@@ -63,7 +63,7 @@ namespace RestTomas.Data.Repositories
             };
         }
 
-        public async Task Delete()
+        public async Task Delete(Center center)
         {
 
         }

@@ -13,6 +13,8 @@ namespace RestTomas.Data
         public RestProfile()
         {
             CreateMap<Center, CenterDto>();
+            CreateMap<CreateCenterDto, Center>();
+            CreateMap<UpdateCenterDto, Center>();
         }
     }
 }

@@ -29,9 +29,50 @@ namespace RestTomas.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<Center> Get(int id)
+        public async Task<ActionResult<CenterDto>> Get(int id)
         {
-            return await _centersRepository.Get(id);
+            var center = await _centersRepository.Get(id);
+            if (center == null) return NotFound($"Center with id '{id}' not found.");
+
+
+            return Ok(_mapper.Map<CenterDto>(center));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<CenterDto>> Post(CreateCenterDto centerDto)
+        {
+            var center = _mapper.Map<Center>(centerDto);
+
+            await _centersRepository.Create(center);
+
+            return Created($"/api/centers/{center.id}", _mapper.Map<CenterDto>(center));
+        }
+
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<CenterDto>> Put(int id, UpdateCenterDto centerDto)
+        {
+            var center = await _centersRepository.Get(id);
+            if (center == null) return NotFound($"Center with id '{id}' not found.");
+
+            //center.Name = centerDto.Name;
+            _mapper.Map(centerDto, center);
+
+            await _centersRepository.Put(center);
+
+            return Ok(_mapper.Map<CenterDto>(center));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<CenterDto>> Delete(int id)
+        {
+            var center = await _centersRepository.Get(id);
+            if (center == null) return NotFound($"Center with id '{id}' not found.");
+
+            await _centersRepository.Delete(center);
+
+            //204
+            return NoContent();
         }
     }
 }
