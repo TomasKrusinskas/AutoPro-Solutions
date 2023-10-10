@@ -19,6 +19,12 @@ namespace RestTomas.Data.Repositories
 
     public class CentersRepository : ICentersRepository
     {
+        private readonly RestContext _restContext;
+        public CentersRepository(RestContext restContext)
+        {
+            _restContext = restContext;
+        }
+
         public async Task<IEnumerable<Center>> GetAll()
         {
             return new List<Center>
@@ -47,11 +53,10 @@ namespace RestTomas.Data.Repositories
 
         public async Task<Center> Create(Center center)
         {
-            return new Center()
-            {
-                Name = "name",
-                Description = "desc"
-            };
+            _restContext.Centers.Add(center);
+            await _restContext.SaveChangesAsync();
+
+            return center;
         }
 
         public async Task<Center> Put(Center center)
