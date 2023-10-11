@@ -21,7 +21,7 @@ namespace RestTomas.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Techninians",
+                name: "Technicians",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -42,7 +42,7 @@ namespace RestTomas.Migrations
                 name: "Centers");
 
             migrationBuilder.DropTable(
-                name: "Techninians");
+                name: "Technicians");
         }
     }
 }

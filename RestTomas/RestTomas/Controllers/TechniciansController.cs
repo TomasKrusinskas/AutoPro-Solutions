@@ -14,10 +14,10 @@ namespace RestTomas.Controllers
     [Route("api/centers/{centerId}/technicians")]
     public class TechniciansController : ControllerBase
     {
-        private readonly ITechninianRepository _techninianRepository;
+        private readonly ITechnicianRepository _techninianRepository;
         private readonly IMapper _mapper;
         private readonly ICentersRepository _centersRepository;
-        public TechniciansController(ITechninianRepository techninianRepository, IMapper mapper, ICentersRepository centersRepository)
+        public TechniciansController(ITechnicianRepository techninianRepository, IMapper mapper, ICentersRepository centersRepository)
         {
             _techninianRepository = techninianRepository;
         }

@@ -23,7 +23,7 @@ namespace RestTomas
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
             services.AddTransient<ICentersRepository, CentersRepository>();
-            services.AddTransient<ITechninianRepository, TechniniansRepository>();
+            services.AddTransient<ITechnicianRepository, TechniniansRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

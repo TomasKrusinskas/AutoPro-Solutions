@@ -8,12 +8,12 @@ namespace RestTomas.Migrations
         {
             migrationBuilder.CreateIndex(
                 name: "IX_Techninians_CenterId",
-                table: "Techninians",
+                table: "Technicians",
                 column: "CenterId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Techninians_Centers_CenterId",
-                table: "Techninians",
+                table: "Technicians",
                 column: "CenterId",
                 principalTable: "Centers",
                 principalColumn: "id",
@@ -24,11 +24,11 @@ namespace RestTomas.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Techninians_Centers_CenterId",
-                table: "Techninians");
+                table: "Technicians");
 
             migrationBuilder.DropIndex(
                 name: "IX_Techninians_CenterId",
-                table: "Techninians");
+                table: "Technicians");
         }
     }
 }

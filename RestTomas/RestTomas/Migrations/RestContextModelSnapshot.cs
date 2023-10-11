@@ -56,7 +56,7 @@ namespace RestTomas.Migrations
 
                     b.HasIndex("CenterId");
 
-                    b.ToTable("Techninians");
+                    b.ToTable("Technicians");
                 });
 
             modelBuilder.Entity("RestTomas.Data.Entities.Techninian", b =>
