@@ -6,7 +6,7 @@ namespace RestTomas.Data
     public class RestContext : DbContext
     {
         public DbSet<Center> Centers { get; set; }
-        public DbSet<Techninian> Technicians { get; set; }
+        public DbSet<Technician> Technicians { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

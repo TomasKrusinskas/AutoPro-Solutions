@@ -32,7 +32,7 @@ namespace RestTomas.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Techninians", x => x.Id);
+                    table.PrimaryKey("PK_Technicians", x => x.Id);
                 });
         }
 

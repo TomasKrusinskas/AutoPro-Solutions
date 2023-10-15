@@ -17,9 +17,9 @@ namespace RestTomas.Data
             CreateMap<CreateCenterDto, Center>();
             CreateMap<UpdateCenterDto, Center>();
 
-            CreateMap<CreateTechninianDto, Techninian>();
-            CreateMap<UpdateTechninianDto, Techninian>();
-            CreateMap<Techninian, TechninianDto>();
+            CreateMap<CreateTechnicianDto, Technician>();
+            CreateMap<UpdateTechnicianDto, Technician>();
+            CreateMap<Technician, TechnicianDto>();
         }
     }
 }

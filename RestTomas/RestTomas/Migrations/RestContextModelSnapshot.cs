@@ -36,7 +36,7 @@ namespace RestTomas.Migrations
                     b.ToTable("Centers");
                 });
 
-            modelBuilder.Entity("RestTomas.Data.Entities.Techninian", b =>
+            modelBuilder.Entity("RestTomas.Data.Entities.Technician", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,7 @@ namespace RestTomas.Migrations
                     b.ToTable("Technicians");
                 });
 
-            modelBuilder.Entity("RestTomas.Data.Entities.Techninian", b =>
+            modelBuilder.Entity("RestTomas.Data.Entities.Technician", b =>
                 {
                     b.HasOne("RestTomas.Data.Entities.Center", "Center")
                         .WithMany()

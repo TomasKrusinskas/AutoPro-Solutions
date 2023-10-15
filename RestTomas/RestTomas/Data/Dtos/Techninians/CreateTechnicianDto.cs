@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace RestTomas.Data.Dtos.Techninians
 {
-    public record CreateTechninianDto([Required] string Name, [Required] string Specialization);
+    public record CreateTechnicianDto([Required] string Name, [Required] string Specialization);
 }

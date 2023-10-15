@@ -1,6 +1,6 @@
 ﻿namespace RestTomas.Data.Entities
 {
-    public class Techninian
+    public class Technician
     {
         public int Id { get; set; }
         public string Name { get; set; }
