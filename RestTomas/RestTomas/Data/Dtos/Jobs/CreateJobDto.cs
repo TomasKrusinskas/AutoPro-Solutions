@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestTomas.Data.Dtos.Technicians
+namespace RestTomas.Data.Dtos.Jobs
 {
-    public record CreateTechnicianDto([Required] string Name, [Required] string Specialization);
+    public record CreateJobDto([Required] string Title, [Required] string Description);
 }

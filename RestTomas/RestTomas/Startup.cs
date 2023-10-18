@@ -24,6 +24,7 @@ namespace RestTomas
             services.AddControllers();
             services.AddTransient<ICentersRepository, CentersRepository>();
             services.AddTransient<ITechnicianRepository, TechniciansRepository>();
+            services.AddTransient<IJobRepository, JobsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

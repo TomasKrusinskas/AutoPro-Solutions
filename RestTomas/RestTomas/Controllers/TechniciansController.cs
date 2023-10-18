@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using RestTomas.Data.Dtos.Techninians;
+using RestTomas.Data.Dtos.Technicians;
 using RestTomas.Data.Entities;
 using RestTomas.Data.Repositories;
 
@@ -20,20 +20,22 @@ namespace RestTomas.Controllers
         public TechniciansController(ITechnicianRepository technicianRepository, IMapper mapper, ICentersRepository centersRepository)
         {
             _technicianRepository = technicianRepository;
+            _mapper = mapper;
+            _centersRepository = centersRepository;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<TechnicianDto>> GetAllAsync(int centerid)
+        public async Task<IEnumerable<TechnicianDto>> GetAllAsync(int centerId)
         {
-            var centers = await _technicianRepository.GetAsync(centerid);
+            var centers = await _technicianRepository.GetAsync(centerId);
             return centers.Select(o => _mapper.Map<TechnicianDto>(o));
         }
 
         // /api/centers/1/techninians/2
-        [HttpGet("{techninianId}")]
-        public async Task<ActionResult<TechnicianDto>> GetAsync(int centerId, int techninianId)
+        [HttpGet("{technicianId}")]
+        public async Task<ActionResult<TechnicianDto>> GetAsync(int centerId, int technicianId)
         {
-            var center = await _technicianRepository.GetAsync(centerId, techninianId);
+            var center = await _technicianRepository.GetAsync(centerId, technicianId);
             if (center == null) return NotFound();
 
             return Ok(_mapper.Map<TechnicianDto>(center));
@@ -54,13 +56,13 @@ namespace RestTomas.Controllers
         }
 
 
-        [HttpPut("{techninianId}")]
-        public async Task<ActionResult<TechnicianDto>> PostAsync(int centerId, int techninianId ,UpdateTechnicianDto technicianDto)
+        [HttpPut("{technicianId}")]
+        public async Task<ActionResult<TechnicianDto>> PostAsync(int centerId, int technicianId , UpdateTechnicianDto technicianDto)
         {
             var center = await _centersRepository.Get(centerId);
             if (center == null) return NotFound($"Couldn't find a topic with id of {centerId}");
 
-            var oldtechnician = await _technicianRepository.GetAsync(centerId, techninianId);
+            var oldtechnician = await _technicianRepository.GetAsync(centerId, technicianId);
             if (oldtechnician == null)
                 return NotFound();
 
@@ -72,7 +74,7 @@ namespace RestTomas.Controllers
             return Ok(_mapper.Map<TechnicianDto>(oldtechnician));
         }
 
-        [HttpDelete("{techninianId}")]
+        [HttpDelete("{technicianId}")]
         public async Task<ActionResult> DeleteAsync(int centerId, int technicianId)
         {
             var technician = await _technicianRepository.GetAsync(centerId, technicianId);

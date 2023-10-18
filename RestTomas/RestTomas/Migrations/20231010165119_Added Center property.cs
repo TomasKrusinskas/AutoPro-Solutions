@@ -16,7 +16,7 @@ namespace RestTomas.Migrations
                 table: "Technicians",
                 column: "CenterId",
                 principalTable: "Centers",
-                principalColumn: "id",
+                principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
 

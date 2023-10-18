@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestTomas.Data.Dtos.Techninians
+namespace RestTomas.Data.Dtos.Technicians
 {
-    public record TechnicianDto(int id, string Name, string Specialization);
+    public record TechnicianDto(int Id, string Name, string Specialization);
 }
