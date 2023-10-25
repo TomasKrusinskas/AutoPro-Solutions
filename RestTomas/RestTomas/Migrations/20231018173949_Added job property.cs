@@ -25,13 +25,13 @@ namespace RestTomas.Migrations
                         column: x => x.CenterId,
                         principalTable: "Centers",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict); // Change to Restrict or NoAction
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Jobs_Technicians_TechnicianId",
                         column: x => x.TechnicianId,
                         principalTable: "Technicians",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict); // Change to Restrict or NoAction
+                        onDelete: ReferentialAction.Restrict); 
                 });
 
             migrationBuilder.CreateIndex(
