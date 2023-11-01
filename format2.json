@@ -24,16 +24,15 @@ Request Body for POST:
 	"specialization": "Specialization"
 }
 
-Task
-/api/Center/{centerId}/Technician/{technicianId}/Task GET ALL 200
-/api/Center/{centerId}/Technician/{technicianId}/Task/{taskId} GET 200
-/api/Center/{centerId}/Technician/{technicianId}/Task POST 201
-/api/Center/{centerId}/Technician/{technicianId}/Task/{taskId} PUT 200
-/api/Center/{centerId}/Technician/{technicianId}/Task/{taskId} DELETE 200/204
+Job
+/api/Center/{centerId}/Technician/{technicianId}/Job GET ALL 200
+/api/Center/{centerId}/Technician/{technicianId}/Job/{taskId} GET 200
+/api/Center/{centerId}/Technician/{technicianId}/Job POST 201
+/api/Center/{centerId}/Technician/{technicianId}/Job/{taskId} PUT 200
+/api/Center/{centerId}/Technician/{technicianId}/Job/{taskId} DELETE 200/204
 
 Request Body for POST:
 {
-	"title": "Task Title",
-	"description": "Task Description",
-	"status": "Task Status"
+	"title": "Job Title",
+	"description": "Job Description",
 }
