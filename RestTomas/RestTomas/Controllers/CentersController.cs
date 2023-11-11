@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using RestTomas.Auth.Model;
 using RestTomas.Data.Dtos.Centers;
 using RestTomas.Data.Entities;
 using RestTomas.Data.Repositories;
@@ -16,13 +18,16 @@ namespace RestTomas.Controllers
     {
         private readonly ICentersRepository _centersRepository;
         private readonly IMapper _mapper;
-        public CentersController(ICentersRepository centersRepository, IMapper mapper)
+        private readonly IAuthorizationService _authorizationService;
+        public CentersController(ICentersRepository centersRepository, IMapper mapper, IAuthorizationService authorizationService)
         {
             _centersRepository = centersRepository;
             _mapper = mapper;
+            _authorizationService = authorizationService;
         }
 
         [HttpGet]
+        [Authorize(Roles = DemoRestUserRoles.SimpleUser)]
         public async Task<IEnumerable<CenterDto>> GetAll()
         {
             return (await _centersRepository.GetAll()).Select(o => _mapper.Map<CenterDto>(o));
@@ -50,12 +55,22 @@ namespace RestTomas.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize(Roles = DemoRestUserRoles.SimpleUser)]
         public async Task<ActionResult<CenterDto>> Put(int id, UpdateCenterDto centerDto)
         {
             var center = await _centersRepository.Get(id);
             if (center == null) return NotFound($"Center with id '{id}' not found.");
 
-            //center.Name = centerDto.Name;
+            var authorizationResult = await _authorizationService.AuthorizeAsync(User, center, PolicyNames.SameUser);
+
+            if (!authorizationResult.Succeeded)
+            {
+                // 403
+                // 404
+                // 401
+                return Forbid();
+            }
+
             _mapper.Map(centerDto, center);
 
             await _centersRepository.Put(center);

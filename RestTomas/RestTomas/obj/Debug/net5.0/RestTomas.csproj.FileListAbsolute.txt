@@ -42,7 +42,6 @@ D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.Identity
 D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
 D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
-D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
 D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -60,3 +59,9 @@ D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\runtimes\win-x86\n
 D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+D:\KTU\AutoPro-Solutions\RestTomas\RestTomas\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll

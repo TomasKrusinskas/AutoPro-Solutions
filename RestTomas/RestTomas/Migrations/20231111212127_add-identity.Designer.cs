@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestTomas.Data;
 
 namespace RestTomas.Migrations
 {
     [DbContext(typeof(RestContext))]
-    partial class RestContextModelSnapshot : ModelSnapshot
+    [Migration("20231111212127_add-identity")]
+    partial class addidentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -231,13 +233,7 @@ namespace RestTomas.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Centers");
                 });
@@ -342,17 +338,6 @@ namespace RestTomas.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("RestTomas.Data.Entities.Center", b =>
-                {
-                    b.HasOne("RestTomas.Data.Dtos.Auth.DemoRestUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("RestTomas.Data.Entities.Job", b =>
