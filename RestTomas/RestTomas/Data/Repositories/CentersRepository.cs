@@ -1,13 +1,17 @@
-﻿using RestTomas.Data.Entities;
+﻿using System;
+using RestTomas.Data.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using RestTomas.Data.Dtos.Centers;
 
 namespace RestTomas.Data.Repositories
 {
 
     public interface ICentersRepository
     {
-        Task<IEnumerable<Center>> GetAll();
+        Task<IEnumerable<CenterDto>> GetAll();
         Task<Center> Get(int id);
         Task<Center> Create(Center center);
         Task<Center> Put(Center center);
@@ -17,32 +21,25 @@ namespace RestTomas.Data.Repositories
     public class CentersRepository : ICentersRepository
     {
         private readonly RestContext _restContext;
-        public CentersRepository(RestContext restContext)
+        private readonly IMapper _mapper;
+        public CentersRepository(RestContext restContext, IMapper mapper)
         {
             _restContext = restContext;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Center>> GetAll()
+        public async Task<IEnumerable<CenterDto>> GetAll()
         {
-            return new List<Center>
-            {
-                new Center()
-                {
-                    Name = "name",
-                    Description = "desc"
-                },
-                new Center()
-                {
-                    Name = "name",
-                    Description = "desc"
-                }
-            };
-        }
+            var centers = await _restContext.Centers.ToListAsync();
+            var centerDtos = _mapper.Map<IEnumerable<CenterDto>>(centers);
 
+            return centerDtos;
+        }
         public async Task<Center> Get(int id)
         {
             return new Center()
             {
+                id = id,
                 Name = "name",
                 Description = "desc"
             };
@@ -67,7 +64,8 @@ namespace RestTomas.Data.Repositories
 
         public async Task Delete(Center center)
         {
-
+            _restContext.Centers.Remove(center);
+            await _restContext.SaveChangesAsync();
         }
     }
 }

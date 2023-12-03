@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace RestTomas.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = DemoRestUserRoles.SimpleUser)]
+        //[Authorize(Roles = DemoRestUserRoles.SimpleUser)]
         public async Task<IEnumerable<CenterDto>> GetAll()
         {
             return (await _centersRepository.GetAll()).Select(o => _mapper.Map<CenterDto>(o));
@@ -54,21 +55,21 @@ namespace RestTomas.Controllers
 
 
         [HttpPut("{id}")]
-        [Authorize(Roles = DemoRestUserRoles.SimpleUser)]
+        //[Authorize(Roles = DemoRestUserRoles.SimpleUser)]
         public async Task<ActionResult<CenterDto>> Put(int id, UpdateCenterDto centerDto)
         {
             var center = await _centersRepository.Get(id);
             if (center == null) return NotFound($"Center with id '{id}' not found.");
 
-            var authorizationResult = await _authorizationService.AuthorizeAsync(User, center, PolicyNames.SameUser);
+            //var authorizationResult = await _authorizationService.AuthorizeAsync(User, center, PolicyNames.SameUser);
 
-            if (!authorizationResult.Succeeded)
-            {
+            //if (!authorizationResult.Succeeded)
+           // {
                 // 403
                 // 404
                 // 401
-                return Forbid();
-            }
+           //     return Forbid();
+          //  }
 
             _mapper.Map(centerDto, center);
 

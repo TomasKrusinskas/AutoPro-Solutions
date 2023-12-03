@@ -2,5 +2,5 @@
 
 namespace RestTomas.Data.Dtos.Centers
 {
-    public record CreateCenterDto([Required] string Name, [Required] string Description);
+    public record CreateCenterDto([Required] string Name, [Required] string Description, string UserId);
 }

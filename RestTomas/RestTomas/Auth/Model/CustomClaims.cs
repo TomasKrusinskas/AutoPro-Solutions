@@ -2,7 +2,7 @@
 {
     public class CustomClaims
     {
-        public const string UserId = "userId";
+        public const string UserId = "UserId";
         public const string ClientId = "clientId";
     }
 }

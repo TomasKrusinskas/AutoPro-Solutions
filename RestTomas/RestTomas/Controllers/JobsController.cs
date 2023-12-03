@@ -34,7 +34,7 @@ namespace RestTomas.Controllers
             return technicians.Select(o => _mapper.Map<JobDto>(o));
         }
 
-        // /api/centers/1/techninians/2/jobs/1
+        // /api/centers/1/technicians/2/jobs/1
         [HttpGet("{jobId}")]
         public async Task<ActionResult<JobDto>> GetAsync(int centerId, int technicianId, int jobId)
         {
@@ -45,7 +45,7 @@ namespace RestTomas.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<JobDto>> PostAsync(int centerId,int technicianId, CreateJobDto jobDto)
+        public async Task<ActionResult<JobDto>> PostAsync(int centerId, int technicianId, CreateJobDto jobDto)
         {
             var center = await _centersRepository.Get(centerId);
             if (center == null) return NotFound($"Couldn't find a center with id of {centerId}");
@@ -56,6 +56,7 @@ namespace RestTomas.Controllers
 
             var job = _mapper.Map<Job>(jobDto);
             job.TechnicianId = technicianId;
+            job.CenterId = centerId;
 
             await _jobRepository.InsertAsync(job);
 
