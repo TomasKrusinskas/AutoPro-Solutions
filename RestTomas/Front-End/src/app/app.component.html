@@ -1,9 +1,19 @@
-<mat-toolbar color="primary">
-  <span>Crud Application</span>
-  <span style="margin-left: auto">
-    <a routerLink="/">Home</a>
-    <a routerLink="/centers">Centers</a>
-    <a routerLink="/technicians">Technicians</a>
-    <a routerLink="/jobs">Jobs</a>
-  </span>
-</mat-toolbar>
+<div class="container">
+  <div class="navigation">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a routerLink="/centers">Centers</a></li>
+      <li><a routerLink="/technicians">Technicians</a></li>
+      <li><a routerLink="/jobs">Jobs</a></li>
+    </ul>
+    <hr class="separator">
+  </div>
+  <div class="content">
+    <h1>Welcome to AutoPro-Solutions</h1>
+    <p>Your trusted solution for automotive services.</p>
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
+<body>

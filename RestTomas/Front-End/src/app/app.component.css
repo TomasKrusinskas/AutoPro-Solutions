@@ -1,0 +1,61 @@
+.navigation {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #555;
+}
+
+.separator {
+  border: none;
+  border-top: 1px solid #999;
+  margin-top: 10px;
+}
+
+.container {
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: #b29a9a;
+}
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    padding: 40px;
+  }
+}
+  body {
+    background-image: url('../assets/autoservisas.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }

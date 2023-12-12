@@ -1,1 +1,6 @@
-<p>jobs works!</p>
+<div *ngFor="let job of jobsData">
+  <p>ID: {{ job.id }}</p>
+  <p>Title: {{ job.title }}</p>
+  <p>Description: {{ job.description }}</p>
+  <hr>
+</div>
