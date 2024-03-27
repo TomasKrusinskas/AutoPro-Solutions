@@ -14,6 +14,7 @@ using RestTomas.Auth.Model;
 using RestTomas.Data;
 using RestTomas.Data.Dtos.Auth;
 using RestTomas.Data.Repositories;
+using System;
 
 
 namespace RestTomas
@@ -46,7 +47,7 @@ namespace RestTomas
                     options.TokenValidationParameters.ValidIssuer = _configuration["JWT:ValidIssuer"];
                     options.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
                 });
-
+            Console.WriteLine("kaip tai veikia");
             services.AddAuthorization(options =>
             {
                 options.AddPolicy(PolicyNames.SameUser, policy => policy.Requirements.Add(new SameUserRequirement()));
@@ -61,6 +62,7 @@ namespace RestTomas
             services.AddTransient<IJobRepository, JobsRepository>();
             services.AddTransient<ITokenManager, TokenManager>();
             services.AddTransient<DatabaseSeeder, DatabaseSeeder>();
+            Console.WriteLine("bruh");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
